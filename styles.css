@@ -1,0 +1,10 @@
+body{
+    background-image: url(images/index-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #bfb7d4;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+}
