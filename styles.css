@@ -12,7 +12,7 @@ body{
     align-items: center;
 }
 
-.container, .login-container {
+.container, .login-container, .dashboard-container {
     background-color: rgb(219, 192, 151, 0.50);
     border-radius: 12px;
     padding: 40px;
@@ -22,7 +22,7 @@ body{
     justify-content: center;
     text-align: center;
     color: #b37c65;
-    font-family: 'Lucida Handwriting';
+    font-family: 'Times New Roman';
     -webkit-text-stroke: 0.5px black;
     font-variant-ligatures: contextual;
 }
@@ -33,30 +33,30 @@ body{
     }
 }
 
-.login-btn {
+.login-btn, .add-btn {
     background-color: #2b1502;
     cursor: pointer;
     color: whitesmoke;
 }
 
-.login-btn:hover {
+.login-btn:hover, .add-btn:hover {
     background-color: #432b15;
 }
 
-.login-btn:active {
+.login-btn:active, .add-btn:active {
     background-color: #140a00;
     transform: translateY(3px);
 }
 
-.guest-btn {
+.guest-btn, .edit-btn {
     cursor: pointer;
 }
 
-.guest-btn:hover {
+.guest-btn:hover, .edit-btn:hover {
     background-color: rgb(92, 63, 63);
 }
 
-.guest-btn:active {
+.guest-btn:active, .edit-btn:active {
     background-color: rgb(82, 76, 81);
     transform: translateY(3px);
 }
