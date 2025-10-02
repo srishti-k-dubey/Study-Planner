@@ -12,7 +12,7 @@ body{
     align-items: center;
 }
 
-.container, .login-container, .dashboard-container {
+.container, .login-container{
     background-color: rgb(219, 192, 151, 0.50);
     border-radius: 12px;
     padding: 40px;
@@ -76,3 +76,126 @@ body{
     border-radius: 2px;
     justify-content: right;
 }
+
+/* General Dashboard Styling */
+.dashboard-container {
+  background-color: rgba(219, 192, 151, 0.5);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 12px #2b1502;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #b37c65;
+  font-family: 'Times New Roman';
+  -webkit-text-stroke: 0.5px black;
+  font-variant-ligatures: contextual;
+  text-align: center;
+}
+
+/* Headings */
+.dashboard-container h2,
+.dashboard-container h6 {
+  color: #2b1502;
+  font-weight: bold;
+  text-shadow: 1px 1px #fff5ee;
+}
+
+/* Override Bootstrap's default card */
+.card {
+  background-color: rgba(255, 255, 255, 0.4); /* semi-transparent */
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  color: #2b1502;
+}
+
+/* Buttons */
+button,
+.btn {
+  background-color: #2b1502;
+  color: whitesmoke;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #432b15;
+}
+
+button:active,
+.btn:active {
+  background-color: #140a00;
+  transform: translateY(2px);
+}
+
+/* Special for small remove button in calendar */
+#remove-calendar {
+  background-color: #b33a3a;
+}
+#remove-calendar:hover {
+  background-color: #922d2d;
+}
+
+/* Inputs and textarea */
+textarea,
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  border: 1px solid #a67c52;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #2b1502;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: #2b1502;
+  box-shadow: 0 0 4px #2b1502;
+}
+
+/* Row of three cards under calendar */
+.row-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.row-cards .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 400px; /* consistent height */
+}
+
+/* Lists inside cards scrollable */
+.card-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* Delete (trashbin) button */
+.delete-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.delete-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Calendar iframe */
+#calendar-container iframe {
+  border: none;
+  border-radius: 8px;
+}
+

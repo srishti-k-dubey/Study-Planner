@@ -10,9 +10,51 @@
   <link rel="stylesheet" href="styles.css"> 
   <script src="script.js"></script>
     <title>User Dashboard</title>
+   <style>
+body { background-color: #f8f9fa; }
+textarea { resize: vertical; }
+.dashboard-container { max-width: 1200px; margin: 2rem auto; }
+.card-list {
+  flex: 1; /* fill remaining space */
+  overflow-y: auto;
+  margin-top: 0.5rem;
+}
+.completed { text-decoration: line-through; color: gray; }
+.list-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; }
+.list-item span { flex-grow: 1; margin-left: 0.5rem; }
+.calendar-link { font-size: 0.8rem; margin-left: 0.5rem; }
+.instructions { font-size: 0.875rem; color: #555; margin-bottom: 0.5rem; }
+
+.row-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap; /* prevent wrapping */
+}
+
+.row-cards .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 400px; /* fixed height for all cards */
+}
+
+.delete-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 18px;
+  height: 18px;
+}
+</style>
 </head>
 <body>
-    <div class="dashboard-container d-flex flex-column gap-4">
+
+<div class="dashboard-container d-flex flex-column gap-4">
+
+      <h2 class="text-center mb-4">Weekly Planner</h2>
 
   <!-- Priorities Card -->
   <div class="priorities card p-3 w-100">
@@ -24,23 +66,82 @@
     </div>
   </div>
 
-  <!-- Calendar Card -->
-    <div class="calendar card p-3 w-100">
-    <h6 class="mb-3">Embed Your Google Calendar</h6>
-    <p class="instructions">
-      To display your calendar here: <br>
-      1. Open <a href="https://calendar.google.com/" target="_blank">Google Calendar</a>. <br>
-      2. Hover over the calendar you want to embed (under "My calendars") and click the three dots → Settings and sharing. <br>
-      3. Scroll down to “Access permissions” and check “Make available to public”. <br>
-      4. Scroll to “Integrate calendar” → Copy the <strong>Embed code URL</strong> (the src in the iframe). <br>
-      5. Paste that URL below and click “Load Calendar”.
-    </p>
-    <input type="text" id="calendar-link" class="form-control mb-2" placeholder="Paste your Google Calendar embed URL here">
-    <button class="btn btn-primary mb-3" id="load-calendar">Load Calendar</button>
-    <div class="ratio ratio-16x9" id="calendar-container"></div>
+<!-- Google Calendar Embed Card -->
+<div class="calendar card p-3 w-100 position-relative">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h6 class="mb-0">Embed Your Google Calendar</h6>
+    <button class="btn btn-sm btn-danger" id="remove-calendar" style="display:none;">Remove</button>
   </div>
 
-  
+  <p class="instructions" id="calendar-instructions">
+    To display your calendar here: <br>
+    1. Hover over the calendar you want to embed (under "My calendars") and click the three dots → Settings and sharing. <br>
+    2. Scroll down to "Integrate calendar". <br>
+    3. Copy the <strong>src URL</strong> from the embed code. <br>
+    4. Paste the URL below and click "Load Calendar".
+  </p>
+
+  <div id="calendar-input-group">
+    <input type="text" id="calendar-link" class="form-control mb-2" placeholder="Paste your Google Calendar embed URL here">
+    <button class="btn btn-primary mb-3" id="load-calendar">Load Calendar</button>
+  </div>
+
+  <div class="ratio ratio-16x9" id="calendar-container"></div>
+</div>
+
+
+  <!-- Row of Three Cards: To-Do, Study Sessions, Assignments -->
+  <div class="row-cards">
+
+    <!-- To-Do List Card -->
+    <div class="card p-3">
+      <h6>To-Do List</h6>
+      <div class="d-flex gap-2 mb-2">
+        <input type="text" id="todo-input" class="form-control" placeholder="New task">
+        <button class="btn btn-primary flex-shrink-0" id="todo-add">Add</button>
+      </div>
+      <div id="todo-list" class="card-list"></div>
     </div>
+
+<!-- Study Sessions Card -->
+<div class="card p-3">
+  <h6>Study Sessions</h6>
+  <div class="mb-2">
+    <input type="text" id="study-input" class="form-control mb-2" placeholder="Session Name">
+
+    <label for="study-date" class="form-label small">Session Date</label>
+    <input type="date" id="study-date" class="form-control mb-2">
+
+    <label class="form-label small">Session Time</label>
+    <div class="d-flex gap-2">
+      <input type="time" id="study-from" class="form-control" placeholder="From">
+      <input type="time" id="study-to" class="form-control" placeholder="To">
+    </div>
+  </div>
+  <button class="btn btn-primary mb-2" id="study-add">Add</button>
+  <div id="study-list" class="card-list"></div>
+</div>
+
+
+   <!-- Assignment List Card -->
+<div class="card p-3">
+  <h6>Assignments</h6>
+  <div class="mb-2">
+    <input type="text" id="assignment-input" class="form-control mb-2" placeholder="Assignment Name">
+
+    <label for="assignment-date" class="form-label small">Deadline Date</label>
+    <input type="date" id="assignment-date" class="form-control mb-2">
+
+    <label for="assignment-time" class="form-label small">Deadline Time</label>
+    <input type="time" id="assignment-time" class="form-control">
+  </div>
+  <button class="btn btn-primary mb-2" id="assignment-add">Add</button>
+  <div id="assignment-list" class="card-list"></div>
+</div>
+
+
+  </div>
+
+</div>
 </body>
 </html>
