@@ -29,7 +29,7 @@ A lightweight **personal productivity web app** that helps you organize weekly p
 ### 1. Clone the repo
 
 ```bash
-git clone git@github.com:srishti-k-dubey/Study-Planner.git
+git clone https://github.com/srishti-k-dubey/Study-Planner.git
 cd study-planner
 ```
 
