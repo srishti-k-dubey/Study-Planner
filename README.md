@@ -86,6 +86,12 @@ Simply open `index.html` in your browser. No server or database required.
 
 ---
 
+## Remarks
+
+The Login and Register pages are static for now. Subjected to future enhancements.
+
+---
+
 ## License
 
 This project is open-source and available under the **MIT License**.
