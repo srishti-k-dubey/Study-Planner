@@ -30,7 +30,6 @@ A lightweight **personal productivity web app** that helps you organize weekly p
 
 ```bash
 git clone https://github.com/srishti-k-dubey/Study-Planner.git
-cd study-planner
 ```
 
 ### 2. Open in browser
