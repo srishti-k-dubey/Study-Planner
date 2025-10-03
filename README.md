@@ -89,6 +89,7 @@ Simply open `index.html` in your browser. No server or database required.
 ## Remarks
 
 The Login and Register pages are static for now. Subjected to future enhancements.
+To experience the features of the app, continue as guest.
 
 ---
 
